@@ -1,0 +1,33 @@
+
+ <div class="container">
+    <fa-icon [icon]="faArrowLeft"></fa-icon>
+
+    <h1 class="titulo">Login</h1>
+
+    <form (ngSubmit)="signin()">
+
+        <div class="linha">
+            <fa-icon [icon]="faUser"></fa-icon>
+            <input type="text" id="nome" placeholder="seu nome" (keyup)="mostrarNome()" name="nome" [(ngModel)]="userModel.nome">
+        </div>
+        
+        <div class="linha">
+            <fa-icon [icon]="faEnvelope"></fa-icon>
+            <input type="email" id="usuario" placeholder="seu e-mail" name="usuario" [(ngModel)]="userModel.email">
+        </div>
+
+        <div class="linha">
+            <fa-icon [icon]="faLock"></fa-icon>
+            <input type="password" id="senha" placeholder="*****" name="senha" [(ngModel)]="userModel.password" >
+        </div>
+
+   
+            <p class="mensagem">{{mensagem}}</p>
+            <p>Brinks: {{nomeProfessor}}</p>
+        
+            <button class="signin" type="submit">Sign in</button>
+            <button class="signin" type="button" (click)="mostrarNome()">Mostrar Nome</button>
+
+        
+    </form>
+</div>

@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "name": "Eduardo Mendes da Costa",
+      "email": "edu@edu.com",
+      "password": "$2a$10$P6AKXuEu3lyjvAiNRwvd/.sgi3qbuQMikG7TH2UoEnHCiRZuVYDp.",
+      "id": 1
+    },
+    {
+      "email": "maria@yahoo.com",
+      "password": "$2a$10$iJ21OwH2aenklKe8EwVIyevj9vRmwt/XBrXogsmPQ02BaBIhoMkI.",
+      "id": 2
+    }
+  ]
+}

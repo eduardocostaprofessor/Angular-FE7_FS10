@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* imports de fonts */
+@font-face {
+    font-family: "Roboto-Thin";
+    src: url(/assets/fonts/Roboto/Roboto-Thin.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-Light";
+    src: url(/assets/fonts/Roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url(/assets/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url(/assets/fonts/Roboto/Roboto-Medium.ttf);
+}
+
+/* Reset de página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto-Regular';
+    color: white;
+    background-color: black;
+    /* herança */
+}
+
+
+.container-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* border: 1px solid salmon; */
+}
+
+/* customização do container do bootstrap */
+.container {
+    max-width: 1200px;
+}
+
+
+/* DESKTOP tablets 992px - 1199px */
+@media all and (max-width: 1199px) {
+
+    .container,
+    .container-grid {
+        max-width: 980px;
+    }
+}

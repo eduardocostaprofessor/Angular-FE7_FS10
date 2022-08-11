@@ -1,0 +1,118 @@
+/* cabeçalho */
+.header-flex {
+    /* flex conteiner */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: center;
+    height: 85px;
+}
+
+header {
+    background-color: #1E1C21;
+}
+
+header .logo {
+    /* border: 1px solid red; */
+    width: 280px;
+}
+
+header .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid white; */
+    width: 60%;
+    height: 100%;
+}
+
+header .menu a {
+    font-family: "Roboto-Light";
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+
+header .menu-bars {
+    display: none;
+}
+
+
+/* TABLETS tablets 768px - 991px*/
+@media all and (max-width: 991px) {
+    header .logo {
+        width: 230px;
+        margin-left: 15px;
+    }
+
+    
+    /* navbar */
+    header .menu {
+        position: fixed;
+        /* referência viewport */
+        top: 0px;
+        /* coordenadas de posicinoamento */
+        left: -80%;
+        z-index: 100; /* controle de camada */
+
+        opacity: 0; /* invisível  */
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+
+        width: 80%;
+        height: 100%;
+
+        padding: 20px 50px;
+        background-color: rgba(195, 22, 22, 0.98);
+        border-radius: 0 0 0 90px;
+        transition: left 0.4s, opacity 0.5s;
+    }
+
+    header .menu a {
+        margin-bottom: 20px;
+        padding: 20px;
+        border-left: 3px dotted #AAB0AE;
+        font-size: 1.4rem;
+        color: #AAB0AE;
+    }
+
+    header .menu-bars {
+        display: block;
+        width: 40px;
+        margin-right: 15px;
+        color: white;
+    }
+    
+    .mostraEscondeMenu {
+        left: 0 !important;
+        opacity: 1 !important; /* visível */
+    }
+
+    
+}
+
+
+/* SMARTPHONES celulares 0 - 767px */
+@media all and (max-width: 767px) {
+    
+    .header-flex {
+        height: 65px;
+    }
+    
+    header .menu-bars {
+        width: 25px;
+    }
+
+    header .logo {
+        width: 180px;
+    }
+
+    header .menu a {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-left: 2px dotted #AAB0AE;
+        font-size: 1rem;
+    }
+}
