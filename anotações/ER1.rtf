@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww20620\viewh13400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs48 \cf0 Importar o m\'f3dulo HttpClientModule (
+\f1\b app.module.ts
+\f0\b0 )\
+	
+\f1\b import \{ HttpClientModule \} from "@angular/common/http";\
+	imports: [\
+		*,\
+		HttpClientModule\
+	]\
+\
+
+\f0\b0 Criar o service \
+	ng generate service services/user\
+		criar a vari\'e1vel de httpClient dentro do constructor(??)\{\}\
+	criar uma vari\'e1vel url com o endere\'e7o do servi\'e7o/recurso da api\
+	criar o m\'e9todo post\
+\
+Criar o m\'e9todo de login que chama o service (login.component.ts)\
+	criar a vari\'e1vel de userService dentro do constructor(??)\{\}\
+	criar a fun\'e7\'e3o de login/signin\
+\
+Subir o servidor de api fake (
+\f1\b https://www.npmjs.com/package/json-server-auth
+\f0\b0 )\
+json-server db.json -m ./node_modules/json-server-auth}
