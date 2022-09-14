@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 import { faUser, faEnvelope, faLock, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+// Comando para rodar o json server auth e json server
+// json-server db.json -m ./node_modules/json-server-auth
 
 @Component({
   selector: 'app-login',
@@ -11,14 +14,18 @@ import { UserService } from 'src/app/services/user.service';
 })
 
 export class LoginComponent implements OnInit {
+ 
+  constructor(private userService: UserService, private router: Router) { 
 
-  constructor(private userService: UserService) { }
+    
+  }
 
   ngOnInit(): void {
   }
 
-
+  
   // nossas funcionalidades
+ 
   faUser = faUser
   faEnvelope = faEnvelope
   faLock = faLock
@@ -34,43 +41,61 @@ export class LoginComponent implements OnInit {
   }
 
   validaLogin(): boolean {
-    if (//falta preencher campos
+    // lista de palavras proibidas
+    let blackList = ["SELECT", "OR",' ""="" ', "-- ", ";", "1 = 1", "1=1", "DROP", "\"\"=\"\"", "'='"];//lista de palavras chave
+    
+    let ataque = 0;
+    
+    blackList.forEach((palavra) => {
+      if(this.userModel.email?.toUpperCase().includes(palavra)) {
+        ataque++;//conta mais uma palavra proibida
+      }
+    })
+    
+    // console.log('ATAQUEEEEEEEEE',ataque);
+    // if(ataque > 0){//tem palavra de sql injection
+    //   return false;//não deixa passar!!!
+    // }
+    
+    
+    if (//falta preencher campos ou caiu na black list
       this.userModel.nome === undefined || this.userModel.nome === '' || 
       this.userModel.email === undefined || this.userModel.email === '' ||
-      this.userModel.password === undefined || this.userModel.password === ''
+      this.userModel.password === undefined || this.userModel.password === '' ||
+      ataque > 0
     ) { 
       return false;
     } else {
       return true;
     }
-  }
+  
+  
+  }//fim da função
 
   //Função de Login
   signin() {
     //fazer validação
-    if ( this.validaLogin() ) { //pode cadastrar?
-      console.log(this.userModel);
+    if ( this.validaLogin() ) { //pode logar?
+      
       this.userService.sigin(this.userModel)
         .subscribe(
           {
             next: (response) => {
-              console.log(response);
               this.mensagem = `Logado com Sucesso! ${response.status} ${response.statusText}`
-
+              
+              //encaminhar para a rota home
+              this.router.navigate([''])
             },
             error: (e) => {
-              console.log('DEU RUIMMMMMM', e);
-              // console.clear()
               this.mensagem = `${e.error} ${e.status} ${e.statusText}`
             }
-
           }
         )
 
-    } else {//falta preencher campos
+    } else {//falta preencher campos ou contém sql injection
 
       console.log(this.userModel);
-      this.mensagem = "Preencher todos os campos"
+      this.mensagem = "Preencher todos os campos corretamente"
     }
   }
 
